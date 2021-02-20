@@ -5,19 +5,24 @@ using Mirror;
 public class NetworkPlayer : NetworkBehaviour
 {
     // Start is called before the first frame update
-    
+    public GameObject childObject;
     void Start()
     {
-        if (!isLocalPlayer)
+        if (isLocalPlayer)
         {
-            if (GetComponentInChildren<AudioListener>())
+            if (childObject.GetComponent<AudioListener>())
             {
-                GetComponentInChildren<AudioListener>().enabled = false;
+                childObject.GetComponent<AudioListener>().enabled = true;
             }
+            childObject.GetComponent<Camera>().enabled = true;
+        }
+        else
+        {
             if (GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>())
             {
                 GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
             }
+            childObject.tag = "Untagged";
         }
     }
 
