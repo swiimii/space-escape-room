@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightsLever : Interactable
+public class WeaponsButton : Interactable
 {
-    [SerializeField] LightMode lights;
     [SerializeField] AsteroidConsole asteroidConsole;
     public override void Interact()
     {
-        lights.BrightLights();        
-        asteroidConsole.PowerOn();
+        asteroidConsole.FireWeapons();
         base.Interact();
     }
 }
