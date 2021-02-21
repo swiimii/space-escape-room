@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-
+using UnityEngine.Audio;
 public class NumberPad : NetworkBehaviour
 {
     string inputSequence = "";
     public string correctSequence;
     [SerializeField] Door door;
+    public AudioClip input, success, failure;
 
     public void InputDigit(string digit)
     {
@@ -18,6 +19,7 @@ public class NumberPad : NetworkBehaviour
             if (inputIsCorrect)
             {
                 print("Opened!");
+                RpcPlayAudioClip("success");
                 door.isLocked = false;
                 door.Interact();
             }
@@ -25,13 +27,28 @@ public class NumberPad : NetworkBehaviour
             {
                 print("Failed to open");
                 inputSequence = "";
-                // sad beep
+                RpcPlayAudioClip("failure");
             }
         }
         else
         {
             print("Inputted" + digit);
-            // Play input beep
+            RpcPlayAudioClip("input");
         }
+    }
+
+    [ClientRpc]
+    public void RpcPlayAudioClip(string clip)
+    {
+        AudioClip selectedclip = input;
+        if (string.Compare(clip, "success") == 0)
+        {
+            selectedclip = success;
+        }
+        else if (string.Compare(clip, "failure") == 0)
+        {
+            selectedclip = failure;
+        }
+        GetComponent<AudioSource>().PlayOneShot(selectedclip);
     }
 }

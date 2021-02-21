@@ -19,7 +19,7 @@ public class Door : Interactable
     }
     [ClientRpc] public override void RpcInteract()
     {
-        
+        GetComponent<AudioSource>().Play();
     }
 
     public override void Interact()
