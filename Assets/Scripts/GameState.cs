@@ -27,6 +27,7 @@ public class GameState : ChainEvent
     [ClientRpc]
     public void RpcBeginCountdown()
     {
+        GetComponent<AudioSource>().Play();
         if (!isServer)
         {
             StartCoroutine(Countdown());
