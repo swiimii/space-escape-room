@@ -18,8 +18,9 @@ public class NetworkPlayer : NetworkBehaviour
             }
             childObject.GetComponent<Camera>().enabled = true;
             gameObject.tag = "Player";
-            // var id = GameObject.FindGameObjectWithTag("GameController").GetComponent<Mirror.FizzySteam.FizzySteamworks>().SteamUserID;
-            // sessionId = id.ToString();
+            ulong id = GameObject.FindGameObjectWithTag("GameController").GetComponent<Mirror.FizzySteam.FizzySteamworks>().SteamUserID;
+            sessionId.text = id.ToString();
+            sessionId.gameObject.SetActive(true);
         }
         else
         {
