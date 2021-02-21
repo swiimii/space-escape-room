@@ -19,6 +19,7 @@ public class LightMode : NetworkBehaviour
         status = true;
         RpcBrightLights();
     }
+    [ClientRpc]
     private void RpcDimLights()
     {
         foreach (GameObject light in dimLights)
@@ -30,6 +31,7 @@ public class LightMode : NetworkBehaviour
             light.SetActive(false);
         }
     }
+    [ClientRpc]
     private void RpcBrightLights()
     {
         foreach (GameObject light in dimLights)
