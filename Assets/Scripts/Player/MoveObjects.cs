@@ -36,6 +36,7 @@ public class MoveObjects : NetworkBehaviour
         {
             if (heldObject)
             {
+                // Move objects towards pointed-at direction
                 var mc = cam;
                 var originPosition = mc.transform.position;
                 var direction = mc.transform.forward;
