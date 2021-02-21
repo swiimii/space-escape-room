@@ -52682,7 +52682,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   countdownTimer: {fileID: 1882756454}
-  countdownTime: 600
+  countdownTime: 360
 --- !u!114 &2029610551
 MonoBehaviour:
   m_ObjectHideFlags: 0
