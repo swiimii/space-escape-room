@@ -15,6 +15,7 @@ public class NetworkPlayer : NetworkBehaviour
                 childObject.GetComponent<AudioListener>().enabled = true;
             }
             childObject.GetComponent<Camera>().enabled = true;
+            gameObject.tag = "Player";
         }
         else
         {
