@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
 public class NetworkPlayer : NetworkBehaviour
 {
     // Start is called before the first frame update
     public GameObject childObject;
+    public Text sessionId;
     void Start()
     {
         if (isLocalPlayer)
@@ -16,6 +18,8 @@ public class NetworkPlayer : NetworkBehaviour
             }
             childObject.GetComponent<Camera>().enabled = true;
             gameObject.tag = "Player";
+            // var id = GameObject.FindGameObjectWithTag("GameController").GetComponent<Mirror.FizzySteam.FizzySteamworks>().SteamUserID;
+            // sessionId = id.ToString();
         }
         else
         {
