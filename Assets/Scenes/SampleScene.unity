@@ -4072,7 +4072,7 @@ MonoBehaviour:
   showDebugMessages: 0
   serverTickRate: 30
   offlineScene: 
-  onlineScene: 
+  onlineScene: Assets/Scenes/SampleScene.unity
   transport: {fileID: 210836051}
   networkAddress: localhost
   maxConnections: 4
@@ -13892,13 +13892,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.43, y: 1.53, z: -8.72}
+  m_LocalRotation: {x: -0, y: 0.83684266, z: -0, w: -0.54744357}
+  m_LocalPosition: {x: 0.721, y: 1.53, z: 3.327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 246.384, z: 0}
 --- !u!1 &964519796
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 // vis2k: GUILayout instead of spacey += ...; removed Update hotkeys to avoid
 // confusion if someone accidentally presses one.
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Mirror
 {
@@ -135,6 +136,7 @@ namespace Mirror
                 if (GUILayout.Button("Stop Host"))
                 {
                     manager.StopHost();
+                    SceneManager.LoadScene(0);
                 }
             }
             // stop client if client-only
@@ -143,6 +145,7 @@ namespace Mirror
                 if (GUILayout.Button("Stop Client"))
                 {
                     manager.StopClient();
+                    SceneManager.LoadScene(0);
                 }
             }
             // stop server if server-only
@@ -151,6 +154,7 @@ namespace Mirror
                 if (GUILayout.Button("Stop Server"))
                 {
                     manager.StopServer();
+                    SceneManager.LoadScene(0);
                 }
             }
         }
