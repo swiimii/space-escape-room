@@ -2,7 +2,6 @@
 using UnityEngine;
 
 
-[RequireComponent(typeof(CharacterController))]
 public class CharacterAnimator : NetworkBehaviour
 {
     /// <summary>
@@ -39,20 +38,22 @@ public class CharacterAnimator : NetworkBehaviour
 
     public void Update()
     {
+        if(isLocalPlayer)
+        {
+            bool jumping = characterController.velocity.y >= 0.1f;
+            bool moving = !jumping && characterController.velocity.magnitude > 0;
 
-        bool jumping = characterController.velocity.y >= 0.1f;
-        bool moving = !jumping && characterController.velocity.magnitude > 0;
-
-        // Set animator fields based on information
-        animator.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
-        animator.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
-        // Set moving if movement is greater than dead zone
-        animator.SetBool("Moving", moving);
-        // Set turning value based on turning direction
-        // animator.SetFloat("Rotation", cameraController.frameRotation > 0 ? 1 : -1);
-        // animator.SetBool("Turning", !moving && !jumpingOrFalling && Mathf.Abs(cameraController.frameRotation) > this.turningDeadZone);
-        // animator.SetBool("Jumping", jumping);
-        // animator.SetBool("Falling", falling);
+            // Set animator fields based on information
+            animator.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+            // Set moving if movement is greater than dead zone
+            animator.SetBool("Moving", moving);
+            // Set turning value based on turning direction
+            // animator.SetFloat("Rotation", cameraController.frameRotation > 0 ? 1 : -1);
+            // animator.SetBool("Turning", !moving && !jumpingOrFalling && Mathf.Abs(cameraController.frameRotation) > this.turningDeadZone);
+            // animator.SetBool("Jumping", jumping);
+            // animator.SetBool("Falling", falling);
+        }
     }
 }
 
