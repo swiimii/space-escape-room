@@ -6,11 +6,14 @@ public class MoveObjects : NetworkBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField][SyncVar] GameObject heldObject;
+
+    [SerializeField] GameObject handSprite;
     public void Update()
     {
         if (isLocalPlayer)
         {
             var interactableHit = SearchForInteractables();
+            handSprite.SetActive(interactableHit);
             if (Input.GetButtonDown("Fire1"))
             {
                 if (heldObject)
@@ -30,7 +33,6 @@ public class MoveObjects : NetworkBehaviour
                         CmdInteract(interactableHit);
                     }
                 }
-                
             }
         }
         if (isServer)
