@@ -9,6 +9,7 @@ public class Door : Interactable
     [SerializeField] GameObject door1, door2;
     [SerializeField] Transform endPosition1, endPosition2;
     Transform startPosition1, startPosition2;
+    [SerializeField] AudioClip failedToOpenSound;
 
     public bool isLocked;
 
@@ -19,7 +20,14 @@ public class Door : Interactable
     }
     [ClientRpc] public override void RpcInteract()
     {
-        GetComponent<AudioSource>().Play();
+        if(!isLocked)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            GetComponent<AudioSource>().PlayOneShot(failedToOpenSound);
+        }
     }
 
     public override void Interact()
@@ -28,6 +36,10 @@ public class Door : Interactable
         {
             StartCoroutine(OpenDoor());
             base.Interact();
+        }
+        else
+        {
+            RpcInteract();
         }
     }
 

@@ -105,6 +105,7 @@ MonoBehaviour:
   door2: {fileID: 5890948936878382268}
   endPosition1: {fileID: 466795094343865456}
   endPosition2: {fileID: 466795093403997988}
+  failedToOpenSound: {fileID: 8300000, guid: 6551f63806d735748932c24d5d821370, type: 3}
   isLocked: 0
 --- !u!114 &466795094049454420
 MonoBehaviour:
