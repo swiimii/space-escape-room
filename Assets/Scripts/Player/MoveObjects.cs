@@ -6,11 +6,14 @@ public class MoveObjects : NetworkBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField][SyncVar] GameObject heldObject;
+
+    [SerializeField] GameObject handSprite;
     public void Update()
     {
         if (isLocalPlayer)
         {
             var interactableHit = SearchForInteractables();
+            handSprite.SetActive(interactableHit);
             if (Input.GetButtonDown("Fire1"))
             {
                 if (heldObject)
@@ -30,7 +33,6 @@ public class MoveObjects : NetworkBehaviour
                         CmdInteract(interactableHit);
                     }
                 }
-                
             }
         }
         if (isServer)
@@ -65,7 +67,7 @@ public class MoveObjects : NetworkBehaviour
         var originPosition = mc.transform.position;
         var direction = mc.transform.forward;
         var distanceMax = 2;
-        var hit = Physics.Raycast(originPosition, direction, out var hitInfo, distanceMax, 1 << LayerMask.NameToLayer("Interactable"));
+        var hit = Physics.Raycast(originPosition, direction, out var hitInfo, distanceMax, ~(1 << LayerMask.NameToLayer("Player")));
         Debug.DrawRay(originPosition, direction * distanceMax, Color.red);
         if (hit && hitInfo.collider && hitInfo.collider.GetComponent<Interactable>())
         {
