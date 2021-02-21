@@ -28,10 +28,16 @@ public class BreakerBox : NetworkBehaviour
         correctBreakers += breaker.isCorrect ? 1 : -1;
         if (correctBreakers >= breakers.Length)
         {
-            foreach (GameObject g in lights)
-            {
-                g.SetActive(true);
-            }
+            RpcActivateOxygenLights();
+        }
+    }
+
+    [ClientRpc]
+    public void RpcActivateOxygenLights()
+    {
+        foreach (GameObject g in lights)
+        {
+            g.SetActive(true);
         }
     }
 }
