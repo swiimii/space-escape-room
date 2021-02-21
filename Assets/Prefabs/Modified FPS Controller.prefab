@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: -6425187683897893875}
   - component: {fileID: -1877302917705406095}
   - component: {fileID: -2430534407791875844}
-  m_Layer: 0
+  - component: {fileID: -514955738276024896}
+  m_Layer: 9
   m_Name: Modified FPS Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,6 +367,22 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   childObject: {fileID: 100002}
+--- !u!114 &-514955738276024896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900f6d48952067f4d84e9ef5df623aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cam: {fileID: 2000000}
+  heldObject: {fileID: 0}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +395,7 @@ GameObject:
   - component: {fileID: 2000000}
   - component: {fileID: 8100000}
   - component: {fileID: 12474086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirstPersonCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +487,7 @@ GameObject:
   - component: {fileID: 8164399604384098308}
   - component: {fileID: 1159792532346743141}
   - component: {fileID: 5822725543098699613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
