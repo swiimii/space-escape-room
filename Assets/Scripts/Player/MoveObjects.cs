@@ -27,6 +27,7 @@ public class MoveObjects : NetworkBehaviour
                     else
                     {
                         print("Interact!");
+                        CmdInteract(interactableHit);
                     }
                 }
                 
@@ -94,6 +95,13 @@ public class MoveObjects : NetworkBehaviour
     {
         heldObject.GetComponent<Moveable>().Drop();
         heldObject = null;
+    }
+
+    [Command]
+    public void CmdInteract(GameObject obj)
+    {
+        var interactable = obj.GetComponent<Interactable>();
+        interactable.Interact();
     }
 
 }
